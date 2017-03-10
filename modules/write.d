@@ -13,7 +13,6 @@ writef treats the first string as a format-specifier (much like C's printf), and
 The versions ending with "ln" are equivalent to the version without it, but also append a newline at the end of printing.
 All versions are type-safe (and therefore extensible).
 
-
 */
 
 module dlang.mod.write;
@@ -38,8 +37,5 @@ void main() {
     writefln("%f %s", 6., "<- six float"); //now 6 is a float
     writefln("%s %s", 6., "<- six string"); //%s will print all types as string, less decimals
     writefln("%06.2f, %s", 66., "<- sixty-six"); //6 total chars including the period, pad leading zeros, 2 decimal points
-    
-    
-    
-	    
+      
 }
