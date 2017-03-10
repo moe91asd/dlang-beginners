@@ -13,5 +13,5 @@
 
 		/classes    - D-style class examples
 		/doc        - How to docs
-		/functions  - D-style demos of portable functions 
-		/modules    - D-style demos of code examples
+		/functions  - Demos of portable functions 
+		/modules    - Demos of code examples
