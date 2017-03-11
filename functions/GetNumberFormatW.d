@@ -1,15 +1,16 @@
 /*
 
-Can I call teh win32 API direclty from D?
+Can I call teh win32 API directly from D?
 
 Yes, HOWEVER, then I'll need to import windows.h and link to kernal32.lib, etc.
 
 Probably easier to use the DWT library or create a function;
 
-	getNumberFormat(string number, string separator=",", int chunks=3)
+	getNumberFormat(string number)
 
 	string mynumber = getNumberFormat("1024"); //mynumber = "1,024"
 	
+Update: see formatCommaSeparatedNumber.d
 
 */
 

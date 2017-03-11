@@ -10,6 +10,15 @@ idup returns an immutable copy
 You can append to a string.
 Use a char[] if you have to modify individual characters.
 
+D strings are char[]
+
+string s = "Hello";
+immutable means the string characters cannot be changed
+s[1..2] = "a" //NG (no good) trying to change a char in the string, Error: slice s[1..2] is not mutable
+However, you can append to the string;
+s = s ~ " World";
+writeln(s); // "Hello World"
+
 
 */
 

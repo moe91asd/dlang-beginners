@@ -22,6 +22,7 @@ void main() {
 	
 	foreach (i; 0..5) {
    		writeln("Elapsed: " ~ getPeek(sw));
+		stdout.flush();
 		Thread.sleep( dur!("seconds")( 1 ) );
 	}
 	
