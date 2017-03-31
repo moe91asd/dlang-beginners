@@ -6,7 +6,7 @@
 	
 */
 
-module dlang.modules.demo;
+module dlang.modules.createlargecsvfile;
 
 import std.stdio;
 import std.exception;

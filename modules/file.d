@@ -17,8 +17,10 @@ void stdFile() {
 	
 	root = DirEntry(r"dub.json");
 	writeln(root.name);
+	
 	root = DirEntry(r".\dub.json");
 	writeln(root.name);
+	
 	root = DirEntry(r"..\dlang\dub.json");
 	writeln(root.name);
 	

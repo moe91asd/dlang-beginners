@@ -11,5 +11,6 @@ public import core.stdc.stdlib;	//C lib exit
 void main()
 {
 	writeln("C library exit!");
+	
 	exit(0); //C lib exit
 }

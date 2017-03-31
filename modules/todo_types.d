@@ -1,5 +1,9 @@
 /*
 
+char[] to string and back;
+https://en.wikibooks.org/wiki/D_(The_Programming_Language)/d2/Strings_and_Dynamic_Arrays
+
+
 variables
 cast
 

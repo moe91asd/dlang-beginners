@@ -1,5 +1,6 @@
 /*
 
+new
 	https://dlang.org/d-floating-point.html
 		 6 decimal digits for float  24 bit
 		15 decimal digits for double 53 bit
