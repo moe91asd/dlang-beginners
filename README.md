@@ -1,6 +1,7 @@
-#dlang-beginners
+# dlang-beginners
 
-##Objectives
+## Objectives
+
  1. Help for beginners learning the D programming language
  
  2. Make it more fun and enjoyable to learn D
@@ -9,7 +10,7 @@
  
  All examples tested on Windows 10 only
  
-##Index
+## Index
 
 		/classes    - D-style class examples
 		/doc        - How to docs
