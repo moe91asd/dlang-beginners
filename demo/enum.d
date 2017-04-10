@@ -1,4 +1,5 @@
-module dlang.modules.enum;
+
+module dlang.modules.enumdemo;
 
 import std.stdio;
 import std.getopt;

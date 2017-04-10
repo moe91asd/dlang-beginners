@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# my edits
-=======
-# My Edits
->>>>>>> refs/heads/migrate-from-work
+# My edits
 wip
 
 # Compiled Object files
@@ -76,4 +72,3 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-/.project
