@@ -10,7 +10,7 @@ Probably easier to use the DWT library or create a function;
 
 	string mynumber = getNumberFormat("1024"); //mynumber = "1,024"
 	
-Update: see formatCommaSeparatedNumber.d
+Update: see formatCommaSeparatedNumber.d 
 
 */
 

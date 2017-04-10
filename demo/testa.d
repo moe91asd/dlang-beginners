@@ -1,6 +1,5 @@
-/*
+/*sdfdsff
 	This is a very brief demo of a very deep subject
-	
 */
 module dlang.modules.arrays; //008
 

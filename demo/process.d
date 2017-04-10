@@ -12,7 +12,8 @@ import std.conv;
 
 void main()
 {
-	for(;;) {
+	while (!stdin.eof)
+	{
 
 		writeln("");
 		writeln("------------------------------");
@@ -56,6 +57,7 @@ void main()
 		case("Q"):
 			return;
 		default:
+			clearScreen();
 			continue;
 		}
 	}
