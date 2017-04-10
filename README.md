@@ -16,4 +16,4 @@
 		/demo-classes    - D-style class examples
 		/demo-functions  - Demos of portable functions 
 		/doc             - How to docs
-		/tools           - Tools for building and deploying small projects TEST
+		/tools           - Tools for building and deploying small projects
