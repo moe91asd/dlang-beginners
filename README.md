@@ -12,7 +12,7 @@
  
 ## Index
 
-		/classes    - D-style class examples
-		/doc        - How to docs
-		/functions  - Demos of portable functions 
-		/modules    - Demos of code examples
+		/demo            - D code demos
+		/demo-classes    - D-style class examples
+		/demo-functions  - Demos of portable functions 
+		/doc             - How to docs
