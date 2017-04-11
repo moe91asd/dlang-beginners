@@ -1,9 +1,7 @@
-<<<<<<< HEAD
 # my edits
-=======
-# My Edits
->>>>>>> refs/heads/migrate-from-work
+bin
 wip
+.res
 
 # Compiled Object files
 *.o
