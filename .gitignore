@@ -2,6 +2,7 @@
 bin
 wip
 .res
+.externalToolBuilders
 
 # Compiled Object files
 *.o
