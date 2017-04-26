@@ -7,18 +7,18 @@
 
 module dlang.functions.isdirfilewild;
 
-import std.stdio;
 import std.file;
+import std.stdio;
+import std.string;
 //import std.path;
 
-int main() {
+void main() {
 
 	writeln( _isDir( r"C:\Windows" ) );
 
 	writeln( _isFile( r"C:\Windows\win.ini" ) );
 
-	writeln( _isWile( r"C:\Windows\win.*" ) );
-
+	writeln( _isWild( r"C:\Windows\win.*" ) );
 
 }
 
