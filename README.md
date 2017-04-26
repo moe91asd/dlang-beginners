@@ -17,3 +17,14 @@
 		/demo-functions  - Demos of portable functions 
 		/doc             - How to docs
 		/tools           - Tools for building and deploying small projects
+
+## How to build and run demos
+
+	$rdmd rdub demo\hello.d -y
+	
+		Performing "debug" build using dmd for x86.
+		demo ~master: building configuration "application"...
+		Linking...
+		Running .\demo.exe
+		Hello World.
+
