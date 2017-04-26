@@ -8,7 +8,7 @@
  
  3. Advance the use of the D language
  
- All examples tested on Windows 10 only
+ All demos tested on Windows 10 only
  
 ## Index
 
