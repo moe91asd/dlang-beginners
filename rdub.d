@@ -1,5 +1,7 @@
 /+
 
+version 1.0.0
+
 rdub is a front end for dub
 
 	rdub //rund dub with defaults \src or \source\app.d
@@ -79,8 +81,12 @@ int main(string[] args)
 	if ( files.length == 0 ) {
 		files ~= r"src\app.d";	
 	} else {
-		//exists?
+
+		//if no extension, add .d
 		sourceFile = files[0];
+		if (sourceFile.extension == "") sourceFile ~= ".d";
+		
+		//exists?
 		if (!sourceFile.exists) {
 			writeln("ERROR file not found: " ~ sourceFile);
 			return ERROR;
