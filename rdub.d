@@ -1,26 +1,14 @@
 /+
 
-version 1.0.0
+ Copyright (C) 2017 by jasc2v8 at yahoo dot com
+ License: https://opensource.org/licenses/MIT
+ 
+ Version: 1.1.1 added ERR
 
-rdub is a front end for dub
+    rdub is a front end for DUB, a D language build tool
 
-	rdub //rund dub with defaults \src or \source\app.d
-	
-	rdub C:\path\app.d
-	
-	1. copies C:\path\app.d to src\app.d
-	2. asks before deleting all other files in \src (avoids more than 1 main()).
-	2. runs dub with defaults to build and run src\app.d
-	3. passes all args to dub, except: h|help
-	
-	Requires: dub.json or dub.sdl must have name and targetType "executable"
-		name "snippet" //the name of the .exe
-		description "Run DWT Snippets"
-		targetType "executable"
-		sourceFiles "res\\resource.res" platform="windows"
-		stringImportPaths "..\\dwt\\org.eclipse.swt.snippets\\res"
-		dependency "dwtlib" version="~>1.0.2"
-	
+    Refer to showHelp() below.
+
 +/
 
 module dlang.apps.rdub;
@@ -32,7 +20,10 @@ import std.path, std.process;
 import std.stdio, std.string;
 
 enum SUCCESS=0, ERROR=1;
-enum srcDir = "src";
+enum ERR       = "rdub ERROR ";
+enum srcDir    = "src";
+enum srcApp    = "src"    ~ dirSeparator ~ "app.d";
+enum sourceApp = "source" ~ dirSeparator ~ "app.d";
 
 string[] files, flags, dubFlags;
 string dubArgs, rdubArgs;
@@ -73,13 +64,22 @@ int main(string[] args)
 	
 	//if more than 1 file as arg, error
 	if ( files.length > 1 ) {
-		writeln("ERROR only one 1 file allowed.");
+		writeln(ERR~"only one 1 file allowed");
 		return ERROR;
 	}
 
 	//if no file as arg, use default
 	if ( files.length == 0 ) {
-		files ~= r"src\app.d";	
+	
+		if (srcApp.exists) {
+			files ~= srcApp;	
+		} else if (sourceApp.exists) {
+			files ~= sourceApp;	
+		} else {
+			writeln(ERR ~ srcApp ~ " or " ~ sourceApp ~ " not found");
+			return ERROR;
+		}
+		
 	} else {
 
 		//if no extension, add .d
@@ -88,13 +88,13 @@ int main(string[] args)
 		
 		//exists?
 		if (!sourceFile.exists) {
-			writeln("ERROR file not found: " ~ sourceFile);
+			writeln(ERR~"file not found: " ~ sourceFile);
 			return ERROR;
 		}
 		
 		//is main?
 		if (!sourceFile.isMain) {
-			writeln("ERROR file not main(): " ~ sourceFile);
+			writeln(ERR~"file not main(): " ~ sourceFile);
 			return ERROR;
 		}
 		
@@ -103,7 +103,7 @@ int main(string[] args)
 			if (yesFlag) {
 				rmdirRecurse(srcDir);			
 			} else {
-				writeln("WARNING src folder exists, use --yes to overwrite.");
+				writeln("rdub WARNING src folder exists, use --yes to overwrite");
 				return SUCCESS;
 			}
 		}
@@ -126,7 +126,7 @@ int main(string[] args)
 	
 	if (returnCode == ERROR)
 	{
-		writeln("ERROR code: ", returnCode);
+		writeln(ERR~"pipe shell error code: ", returnCode);
 	}
 	
 	return SUCCESS;
@@ -182,18 +182,24 @@ void showHelp()
 {
 
 string helpText = `
-	rdub is a front end for DUB - a D language build tool
+	
+  rdub is a front end for DUB, a D language build tool
 
-	rdub                 = run dub with defaults \src or \source\app.d
+  rdub [-y] [-h] /path/source[.d] [dub args]
+
+  -y    --yes  Overwrite ./src/*.*
+  -h    --help This help information
+
+  rdub            = run dub with defaults ./src/app.d or ./source/app.d
 	
-	rdub C:\path\foo.d   = rund dub as follows:
+  rdub path/foo.d = run dub as follows:
 	
-	1. Copy C:\path\foo.d to src\foo.d
-	2. Ask before deleting all other files in \src - avoids more than 1 main().
-	2. Run dub to build and run src\app.d
-	3. Pass all args to dub, except: -h or --help
+  1. Copy /path/foo.d to ./src/foo.d
+  2. Ask before deleting all other files in ./src to avoid more than 1 main()
+  2. Run dub to build and run ./src/foo.d
+  3. Pass all [dub args] to dub, except: -h or -y
 	
-	Requires: dub.json or dub.sdl must have name "exename" and targetType "executable"
+  Requires: dub.json or dub.sdl must have name "yourexename" and targetType "executable"
 	
 `;
 
